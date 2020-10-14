@@ -15,28 +15,22 @@ import java.util.*;
  * demonstrates the use of the IPMA API for weather forecast
  */
 public class WeatherStarter {
-
     // private static final int CITY_ID_AVEIRO = 1010500;
     /*
     loggers provide a better alternative to System.out.println
     https://rules.sonarsource.com/java/tag/bad-practice/RSPEC-106
      */
     private static final Logger logger = Logger.getLogger(WeatherStarter.class.getName());
+	private static String CITY_NAME ="Aveiro";
+	private static int CITY_ID = 0;
 
     public static void  main(String[] args ) {
-        private static String CITY_NAME = args[0];
-
+        CITY_NAME = args[0];
         /*
         get a retrofit instance, loaded with the GSon lib to convert JSON into objects
          */
-
-        
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://api.ipma.pt/open-data/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-                String sURL = "https://api.ipma.pt/open-data/distrits-islands.json"; //just a string
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("http://api.ipma.pt/open-data/").addConverterFactory(GsonConverterFactory.create()).build();
+		String sURL = "https://api.ipma.pt/open-data/distrits-islands.json"; //just a string
 
 		try {
 			URL url = new URL(sURL);
@@ -61,7 +55,7 @@ public class WeatherStarter {
 				int id = city.get("globalIdLocal").getAsInt();
 
 				String name = city.get("local").getAsString();
-				
+
 				if (name.equals(CITY_NAME)){
 					CITY_ID = id;
 					break;
@@ -72,7 +66,7 @@ public class WeatherStarter {
 			ex.printStackTrace();
 		}
         IpmaService service = retrofit.create(IpmaService.class);
-        Call<IpmaCityForecast> callSync = service.getForecastForACity(CITY_ID_AVEIRO);
+        Call<IpmaCityForecast> callSync = service.getForecastForACity(CITY_ID);
 
         try {
             Response<IpmaCityForecast> apiResponse = callSync.execute();
