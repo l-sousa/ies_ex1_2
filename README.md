@@ -42,3 +42,13 @@ Correr o seguinte comando após devida alteração do WeatherStarter.java para a
 mvn exec:java -Dexec.mainClass="ua.ies.mec93019.weather_radar.WeatherStarter" -Dexec.args="1010500"
 
 Maven Goal: representa uma task específica que contribui para o processo de criação e de gestão de um projeto.
+
+# lab1.2
+
+git log
+
+6d471b8 (HEAD -> logging/feature, origin/logging/feature) added_logs
+413d8bd extra_files
+2fb9579 ex2
+ff3ef2e (origin/main, main) gitignore
+08512c6 fiexd
