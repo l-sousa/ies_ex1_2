@@ -47,8 +47,9 @@ Maven Goal: representa uma task específica que contribui para o processo de cri
 
 git log
 
-6d471b8 (HEAD -> logging/feature, origin/logging/feature) added_logs
+d180a68 (HEAD -> main, origin/logging/feature, logging/feature) added_logs
+6d471b8 added_logs
 413d8bd extra_files
 2fb9579 ex2
-ff3ef2e (origin/main, main) gitignore
+ff3ef2e (origin/main) gitignore
 08512c6 fiexd
